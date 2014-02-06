@@ -3,8 +3,18 @@
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
 	initializePage();
+	$("a.name").click(nameClick);
 })
 
+function nameClick(e) { 
+    // prevent the page from reloading 
+    e.preventDefault();
+    // In an event handler, $(this) refers to 
+    // the object that triggered the event 
+    var defname = $(this).text();
+    var anagram = anagrammedName(defname);
+    $(this).text(anagram);
+}
 /*
  * Function that is called when the document is ready.
  */
